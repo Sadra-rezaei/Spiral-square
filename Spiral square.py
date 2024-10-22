@@ -16,22 +16,12 @@ while counter <= n*n:
         matrix[i][j] = counter
         counter += 1
 
-    for t in range(n):
-        for p in range(n):
-            print(matrix[t][p], end=" ")
-        print()
-    print("a")
-
     # b:
     j = x - 1
     for i in range(x - 2, y-1, -1):
         matrix[i][j] = counter
         counter += 1
-    for t in range(n):
-        for p in range(n):
-            print(matrix[t][p], end=" ")
-        print()
-    print("b")
+
 
 
     # c:
@@ -39,11 +29,6 @@ while counter <= n*n:
     for j in range(x - 2, y-1, -1):
         matrix[i][j] = counter
         counter += 1
-    for t in range(n):
-        for p in range(n):
-            print(matrix[t][p], end=" ")
-        print()
-    print("c")
 
 
     # d:
@@ -51,14 +36,12 @@ while counter <= n*n:
     for i in range(y+1, x - 1):
         matrix[i][j] = counter
         counter += 1
-    for t in range(n):
-        for p in range(n):
-            print(matrix[t][p], end=" ")
-        print()
-    print("d")
 
 
     x -= 1
     y += 1
 
-print(matrix)
+for t in range(n):
+    for p in range(n):
+        print(matrix[t][p], end=" ")
+    print()
