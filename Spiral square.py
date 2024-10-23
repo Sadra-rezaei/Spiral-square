@@ -1,4 +1,5 @@
-n = int(input("Enter a Number: "))
+n = int(input())
+
 matrix = []
 for i in range(n):
     matrix.append([])
@@ -7,40 +8,44 @@ for i in range(n):
 
 
 counter = 1
-x = n
-y = 0
+floatingScale_X = n
+floatingScale_Y = 0
+
+
 while counter <= n*n:
-    # a:
-    i = x - 1
-    for j in range(y, x):
+    
+    # move right to left:
+    i = floatingScale_X - 1
+    for j in range(floatingScale_Y, floatingScale_X):
         matrix[i][j] = counter
         counter += 1
-
-    # b:
-    j = x - 1
-    for i in range(x - 2, y-1, -1):
-        matrix[i][j] = counter
-        counter += 1
-
-
-
-    # c:
-    i = y
-    for j in range(x - 2, y-1, -1):
+    
+    
+    # move down to up:
+    j = floatingScale_X - 1
+    for i in range(floatingScale_X - 2, floatingScale_Y - 1, -1):
         matrix[i][j] = counter
         counter += 1
 
 
-    # d:
-    j = y
-    for i in range(y+1, x - 1):
+    # move left to right:
+    i = floatingScale_Y
+    for j in range(floatingScale_X - 2, floatingScale_Y - 1, -1):
         matrix[i][j] = counter
         counter += 1
 
 
-    x -= 1
-    y += 1
+    # move up to down:
+    j = floatingScale_Y
+    for i in range(floatingScale_Y + 1, floatingScale_X - 1):
+        matrix[i][j] = counter
+        counter += 1
 
+    floatingScale_X -= 1
+    floatingScale_Y += 1
+
+
+# print Matrix
 for t in range(n):
     for p in range(n):
         print(matrix[t][p], end=" ")
